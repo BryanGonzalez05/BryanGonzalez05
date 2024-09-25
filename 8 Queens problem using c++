@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+bool test(int queens[], int curr_q){
+
+    for(int i = 0; i < curr_q; i++){
+        if(queens[i] == queens[curr_q] || curr_q - i  == abs(queens[i]-queens[curr_q] )) return false; // test if there is a queen next to each other or if there is a queen diagonal of it 
+    }
+    return true;
+}
+
+void print(int grid[], int cap){
+static int count = 1;
+
+cout << "solution :" << count++ << endl;
+    for(int r = 0; r < cap; r++){
+        for(int c = 0; c < cap; c++){       //prints out the board 
+            if(c == grid[r]) cout << "1";
+            else cout <<"0";
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+int main(){
+
+int q[8] = {0}, c = 0;
+
+q[c] = 0;           //places a queen on colum 0 and row 0
+while(c >= 0){
+
+c++;            //moves onto the next row
+
+if(c == 8){ print(q,c);         //if it goes past the set size of the array which is 7 it will print and backtrack
+c--;
+}
+else{
+
+q[c] = -1;          //set the row equal to -1
+
+}
+while(c >= 0){
+
+    q[c]++;         //makes the row increase by 1
+
+    if(q[c] == 8){                 // if it passes row 7 it means there are no solution
+        q[c] = -1;              //resets the row and back tracks
+        c--;
+    } else 
+    if(test(q,c))break;     //uses the test function to see if it passes the row test and the diagnale test
+}
+}
+
+    return 0;
+}
