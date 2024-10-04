@@ -1,0 +1,64 @@
+//Bryan Gonzalez
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
+int main(){
+
+vector<int>tower[3];
+int n, from = 0; 
+
+    cout << "Enter a number of rings\n";
+    cin >> n;
+    cout << endl;
+
+int to = (n % 2 == 0 ? 2 : 1), candidate = 1, move = 1;     // sets to to be ether 1 or 2 depending on if user input is odd or even
+                                                            // sets candidate to be the ring that is moved 
+
+    for(int i = n+1; i >= 1; i--)
+        tower[0].push_back(i);         // sets all the rings to tower [0] which holds 4 3 2 1 
+
+        tower[1].push_back(n+1);       // sets tower [1] to hold 4 because its padding for the code
+
+        tower[2].push_back(n+1);       // sets tower [2] to hold 4 because its padding for the code
+
+
+
+        while(tower[1].size() < n+1){
+            cout << "Move #" << move++ << ": Transfer ring " << candidate << " from tower " << char(from+'A') << " to Tower" << char(to+'A') << endl;
+
+        tower[to].push_back(tower[from].back()); // sets the tower[to] which is ether 1 or 2 and makes it hold the top ring from tower[0]  
+
+        tower[from].pop_back(); // gets rid of the top ring from tower[0] 
+
+        if(tower[(to+1)%3].back() < tower[(to + 2)%3].back())   // makes from equal to the tower that has the lowest number that hasn't been moved
+
+            from = (to + 1) % 3;        // if to is 1+1 % 3 = 2 makes from = 2
+
+            else
+
+            from = (to + 2) % 3;        // if to is 2+1 % 3 = 0 makes from = 0
+            
+            candidate = tower[from].back(); // makes candidate the ring number that is gonna be moved the top of the tower[from]
+
+            if( n % 2 == 0){
+                if((tower[(from + 2) % 3].back()) == n + 1 || candidate < (tower[(from+2) % 3].back()))
+                
+                to = (from + 2) % 3;
+
+                else 
+
+                to = (from + 1) % 3;
+
+            } else {
+                if(tower[(from + 1) % 3 ].back() == n + 1 || candidate < tower[(from+1) % 3].back())
+                to = (from + 1) % 3;
+                else
+                to = (from + 2) % 3;
+            }
+    
+        }
+
+    return 0;
+}
