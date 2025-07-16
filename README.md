@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @BryanGonzalez05
 - 👀 I’m interested in learning about coding
-- 🌱 I’m currently learning java
+- 🌱 I’m currently learning javaScript
 - 😄 Pronouns: He/Him
 - ⚡ Fun fact: Im into UFC and boxing
