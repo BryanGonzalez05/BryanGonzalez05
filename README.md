@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @BryanGonzalez05
 - 👀 I’m interested in learning about coding
-- 🌱 I’m currently learning MYSql
+- 🌱 I’m currently learning spring-boot!
 - 😄 Pronouns: He/Him
-- ⚡ Fun fact: Im into UFC and boxing
+- ⚡ Fun fact: Im into UFC and soccer
